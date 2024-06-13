@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cypress-testing": {
+    "angular-kubernetes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cypress-testing",
+            "outputPath": "dist/angular-kubernetes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cypress-testing:build:production"
+              "browserTarget": "angular-kubernetes:build:production"
             },
             "development": {
-              "browserTarget": "cypress-testing:build:development"
+              "browserTarget": "angular-kubernetes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cypress-testing:build"
+            "browserTarget": "angular-kubernetes:build"
           }
         },
         "test": {
@@ -111,11 +111,11 @@
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "cypress-testing:serve"
+            "devServerTarget": "angular-kubernetes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cypress-testing:serve:production"
+              "devServerTarget": "angular-kubernetes:serve:production"
             }
           }
         },
@@ -129,32 +129,32 @@
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "cypress-testing:serve",
+            "devServerTarget": "angular-kubernetes:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "cypress-testing:serve:development"
+              "devServerTarget": "angular-kubernetes:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "cypress-testing:serve",
+            "devServerTarget": "angular-kubernetes:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cypress-testing:serve:production"
+              "devServerTarget": "angular-kubernetes:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "cypress-testing"
+  "defaultProject": "angular-kubernetes"
 }
