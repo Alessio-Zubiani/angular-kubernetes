@@ -1,21 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "angular-kubernetes": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -28,14 +18,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -97,64 +85,20 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "cypress-run": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "angular-kubernetes:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-kubernetes:serve:production"
-            }
-          }
-        },
-        "cypress-open": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "watch": true,
-            "headless": false
-          }
-        },
-        "ct": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "angular-kubernetes:serve",
-            "watch": true,
-            "headless": false,
-            "testingType": "component"
-          },
-          "configurations": {
-            "development": {
-              "devServerTarget": "angular-kubernetes:serve:development"
-            }
-          }
-        },
-        "e2e": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "angular-kubernetes:serve",
-            "watch": true,
-            "headless": false
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-kubernetes:serve:production"
-            }
           }
         }
       }
     }
   },
-  "defaultProject": "angular-kubernetes"
+  "cli": {
+    "analytics": "fae20079-7f37-4cd8-9e1c-307711c44f0d"
+  }
 }
