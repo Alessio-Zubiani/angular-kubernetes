@@ -1,22 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: angular-kubernetes
-  labels:
-    app: angular-kubernetes-app
+  name: angular-app
 spec:
-  selector:
-    matchLabels:
-      service: angular-kubernetes
   template:
     metadata:
       labels:
-        app: angular-kubernetes-app
-        service: angular-kubernetes
+        run: angular-app
     spec:
       containers:
-        - name: angular-kubernetes-container
-          image: angular-kubernetes:latest
+        - name: angular-container
+          image: alessiozubiani1996/angular-kubernetes:latest
           ports:
             - containerPort: 80
               protocol: TCP
@@ -24,15 +18,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-kubernetes-service
+  name: angular-app
   labels:
-    app: angular-kubernetes-app
-    service: angular-kubernetes
+    run: angular-app
 spec:
   type: NodePort
   ports:
-    - port: 8080
+    - port: 80
       targetPort : 80
       protocol: TCP
+      name: http
   selector:
-    service: angular-kubernetes
+    run: angular-app
